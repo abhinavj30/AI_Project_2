@@ -68,6 +68,11 @@ micro_results = np.zeros(4)
 macro_results = np.zeros(4)
 sum_results = np.zeros(4)
 
+conftesttrue = np.asarray([0, 0, 0, 1, 1, 1, 1, 1, 1, 1])
+conftraintrue = np.asarray([0, 1, 1, 0, 0, 0, 1, 1, 1, 1])
+confusiontest = np.reshape(confusion_matrix(conftesttrue, conftraintrue), 4)
+print(confusiontest)
+
 for ii in range(num_output_nodes):
     confusion_sample = np.reshape(confusion_matrix(ydat[:, ii], y_calc[:, ii]), 4)
     sample_results[ii, 0] = confusion_sample[3]
